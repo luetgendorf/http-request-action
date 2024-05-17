@@ -27384,11 +27384,12 @@ const createPersistHandler = (filePath, actions) => (response) => {
             return
         }
     
-        actions.warning(JSON.stringify({ message: error.message, data: response.data }))
+        actions.warning(JSON.stringify({ message: err, data: response.data }))
     })
 }
 
 module.exports = { createPersistHandler }
+
 
 /***/ }),
 

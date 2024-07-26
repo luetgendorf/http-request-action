@@ -92,6 +92,9 @@ const request = async({ method, instanceConfig, data, files, file, actions, opti
       try {
         return await instance.request(requestData)
       } catch(error) {
+        
+        actions.debug('Error: ' + JSON.stringify(error))
+        
         if (error.response && options.ignoredCodes.includes(error.response.status)) {
           actions.warning(`ignored status code: ${JSON.stringify({ code: error.response.status, message: error.response.data })}`)
 
